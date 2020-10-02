@@ -1,0 +1,38 @@
+<div *ngIf="!isSignedIn" class="login-wrapper">
+    <form class="login">
+        <section class="title">
+            <h3 class="welcome">Registration</h3>
+        </section>
+        <div class="login-group">
+          <form class="clr-form clr-form-compact">
+            <div class="clr-form-control clr-row">
+              <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Email*</label>
+              <div class="clr-control-container clr-col-12 clr-col-md-10">
+                <div class="clr-input-wrapper">
+                  <input type="text" #email id="example" placeholder="Email" class="clr-input" />
+                  <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+                </div>
+            </div>
+          </form>
+
+          <form class="clr-form clr-form-compact">
+            <div class="clr-form-control clr-row">
+              <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Password*</label>
+              <div class="clr-control-container clr-col-12 clr-col-md-10">
+                <div class="clr-input-wrapper">
+                  <input type="text" #password id="example" placeholder="Password" class="clr-input" />
+                  <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+                </div>
+                <span class="clr-subtext">Must contain at least 6 characters</span>
+              </div>
+            </div>
+          </form>
+
+            <!-- <button type="submit" class="btn btn-success registerbtn">Register</button> -->
+            <button (click)="onSignup(email.value, password.value)" class="btn btn-success registerbtn">Register</button>
+            <!-- <button routerLink="/login" routerLinkActive="active" class="btn btn-outline">back</button> -->
+        </div>
+    </form>
+</div>
+<app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>

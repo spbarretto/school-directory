@@ -1,0 +1,24 @@
+<router-outlet></router-outlet>
+<div *ngIf="!isSignedIn && !isRegister" class="login-wrapper">
+    <form class="login">
+        <section class="title">
+            <h3 class="welcome">School Directory</h3>
+        </section>
+        <div class="login-group">
+            <clr-input-container>
+                <label class="clr-sr-only">Username</label>
+                <input type="text" #email name="username" clrInput placeholder="Username"/>
+            </clr-input-container>
+            <clr-password-container>
+                <label class="clr-sr-only">Password</label>
+                <input type="password" #password name="password" clrPassword placeholder="Password"/>
+            </clr-password-container>
+            <button (click)="onSignin(email.value, password.value)" class="btn btn-primary">Login</button>
+            <!-- <a [routerLink]="['register']" routerLinkActive="active" class="signup">Register</a> -->
+            <!-- <router-outlet name="register-outlet"></router-outlet> -->
+            <button (click)="showRegister()" class="btn btn-primary">Register</button>
+            <!-- <router-outlet></router-outlet> -->
+        </div>
+    </form>
+</div>
+<app-home *ngIf="isSignedIn" (isLogout)="handleLogout()"></app-home>

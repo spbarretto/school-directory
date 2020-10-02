@@ -1,0 +1,27 @@
+<button class="btn" (click)="logout();">Logout</button>
+
+<app-add-school [schoolToEdit]="schoolToEdit"></app-add-school>
+<hr />
+
+<!-- Datagrid -->
+<clr-datagrid>
+    <clr-dg-column [clrDgField]="'No.'">No.</clr-dg-column>
+    <clr-dg-column [clrDgField]="'School Name'">School Name</clr-dg-column>
+    <clr-dg-column [clrDgField]="'Description'">Description</clr-dg-column>
+    <clr-dg-column [clrDgField]="'School ID'">School ID</clr-dg-column>
+    <clr-dg-column [clrDgField]="'School ID'">Actions</clr-dg-column>
+
+    <clr-dg-row *ngFor="let school of schools; let indexOfelement=index;">
+        <clr-dg-cell>{{indexOfelement + 1}}</clr-dg-cell>
+        <clr-dg-cell>{{school.name}}</clr-dg-cell>
+        <clr-dg-cell>{{school.description}}</clr-dg-cell>
+        <clr-dg-cell>{{school.id}}</clr-dg-cell>
+        <clr-dg-cell>
+          <button (click)="editSchool($event, school)" class= "btn btn-outline">Edit</button>
+          <button (click)="deleteSchool($event, school)" class= "btn btn-warning">Delete</button>
+        </clr-dg-cell>
+    </clr-dg-row>
+
+
+    <clr-dg-footer>{{schools.length}} schools</clr-dg-footer>
+</clr-datagrid>

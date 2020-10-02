@@ -1,0 +1,70 @@
+<form (ngSubmit)="onSubmit()" class="clr-form clr-form-compact">
+  <!-- <div class="clr-form-control clr-row">
+    <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Name</label>
+    <div class="clr-control-container clr-col-12 clr-col-md-10">
+      <div class="clr-input-wrapper">
+        <div *ngIf="schoolToEdit != null; else elseBlock">
+          <input type="text" placeholder="School Name" class="clr-input" [(ngModel)]="school.name" [value]="schoolToEdit.name" name="name" />
+        </div>
+        <ng-template #elseBlock>
+            <input type="text" placeholder="School Name" class="clr-input" [(ngModel)]="school.name" name="name" />
+        </ng-template>
+        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+      </div>
+    </div>
+  </div>
+  <div class="clr-form-control clr-row">
+    <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Description</label>
+    <div class="clr-control-container clr-col-12 clr-col-md-10">
+      <div class="clr-input-wrapper">
+        <input type="text" placeholder="Description" class="clr-input" [(ngModel)]="school.description" name="description" />
+        <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+      </div>
+    </div>
+  </div>
+  <input type="submit" value="Submit" class="btn btn-primary"> -->
+  <div *ngIf="schoolToEdit != null; else elseBlock">
+    <div class="clr-form-control clr-row">
+      <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Name</label>
+      <div class="clr-control-container clr-col-12 clr-col-md-10">
+        <div class="clr-input-wrapper">
+            <input type="text" placeholder="School Name" class="clr-input" [(ngModel)]="schoolToEdit.name" [value]="schoolToEdit.name" name="name" />
+          <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+        </div>
+      </div>
+    </div>
+    <div class="clr-form-control clr-row">
+      <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Description</label>
+      <div class="clr-control-container clr-col-12 clr-col-md-10">
+        <div class="clr-input-wrapper">
+          <input type="text" placeholder="Description" class="clr-input" [(ngModel)]="schoolToEdit.description" [value]="schoolToEdit.description" name="description" />
+          <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+        </div>
+      </div>
+    </div>
+    <button (click)="updateSchool($event, schoolToEdit)" class="btn btn-success">Update</button>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="clr-form-control clr-row">
+      <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Name</label>
+      <div class="clr-control-container clr-col-12 clr-col-md-10">
+        <div class="clr-input-wrapper">
+            <input type="text" placeholder="School Name" class="clr-input" [(ngModel)]="school.name" name="name" />
+          <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+        </div>
+      </div>
+    </div>
+    <div class="clr-form-control clr-row">
+      <label for="example" class="clr-control-label clr-col-12 clr-col-md-2">Description</label>
+      <div class="clr-control-container clr-col-12 clr-col-md-10">
+        <div class="clr-input-wrapper">
+          <input type="text" placeholder="Description" class="clr-input" [(ngModel)]="school.description" name="description" />
+          <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
+        </div>
+      </div>
+    </div>
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </ng-template>
+  <!-- <div class="clr-form-control clr-row"><button class= "btn btn-warning">Add</button></div> -->
+</form>
